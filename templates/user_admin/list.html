@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block header %} 
+    <h1>{% block title %} List of Users {% endblock title %}</h1>
+{% endblock header %}
+{% block content %}
+    {% if users %}
+    <table>
+        
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Email</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.lname }}</td>
+                <td>{{ user.department }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <h1>No users added to database</h1>
+    {% endif %} 
+{% endblock content %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <title>Basic-Flask - {% block title %} NO-TITLE {% endblock title %}</title>
+</head>
+<body>
+    {% include '_navbar.html' %}
+    <header>
+        {% block header %} 
+            NO-HEADER
+        {% endblock header %}
+    </header>
+    {% if get_flashed_messages() %}
+        {% with message = get_flashed_messages() %}
+            <h1 class="flash">{{ message[0] }}</h1>
+        {% endwith %}
+    {% endif %}
+    <article>
+        {% block content %} 
+            NO-CONTENT
+        {% endblock content %}
+    </article>
+</body>
+</html>
